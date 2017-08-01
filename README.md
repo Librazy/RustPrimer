@@ -11,43 +11,36 @@ The Rust primer for beginners.
 
 ## 在线阅读地址
 
-[点我阅读](https://rustcc.gitbooks.io/rustprimer/content/)
-
-也可复制以下链接：
-
-```
-https://rustcc.gitbooks.io/rustprimer/content/
-```
+<https://rustcc.gitbooks.io/rustprimer/content/>
 
 ## 社区
 
 ### QQ群
 
 群号：
-```
-    Rust语言中文社区 144605258 （已满）
-    Rust编程语言社区2群 303838735
-```
 
-*进群必须附带您的github地址，否则不予通过*
+> Rust语言中文社区 144605258 （已满）  
+> Rust编程语言社区2群 303838735
 
-### 社区
+进群*必须附带您的github地址*，否则不予通过
 
-chat: https://chat.rust-china.org/ (使用github验证登录)
+### 网站
 
-blog: https://rust-china.org/
+chat: <https://chat.rust-china.org/> (使用github验证登录)
 
-wiki: https://wiki.rust-china.org/
+blog: <https://rust-china.org/>
+
+wiki: <https://wiki.rust-china.org/>
 
 ## 版权规定
 
-本书使用 `CC BY-SA 3.0` 协议，转载请注明地址。
+本书使用 `CC BY-SA 3.0` 协议，转载请注明来源。
 
 ## GitBook 生成
 
 直接用：
 
-```
+```shell
 gitbook serve
 ```
 

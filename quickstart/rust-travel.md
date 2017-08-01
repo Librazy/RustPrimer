@@ -1,6 +1,7 @@
 # Rust旅程
 
 ## HelloWorld
+
 按照编程语言的传统，学习第一门编程语言的第一个程序都是打印 Hello World！
 下面根据我们的步骤创建 Rust 的 Hello World！程序：
 
@@ -41,8 +42,7 @@ fn main() {
 
 1. 第一行中 fn 表示定义一个**函数**，main是这个函数的名字，花括号{}里的语句则表示这个函数的内容。
 2. 名字叫做**main**的函数有特殊的用途，那就是作为程序的入口，也就是说程序每次都从这个函数开始运行。
-3. 函数中只有一句 ```println!("Hello World!");```，这里```println!```是一个Rust语言自带的**宏**，
-这个宏的功能就是打印文本(结尾会换行)，而"Hello World!"这个用引号包起来的东西是一个**字符串**，就是我们要打印的文本。
+3. 函数中只有一句 ```println!("Hello World!");```，这里```println!```是一个Rust语言自带的**宏**，这个宏的功能就是打印文本(结尾会换行)，而"Hello World!"这个用引号包起来的东西是一个**字符串**，就是我们要打印的文本。
 4. 你一定注意到了```;```吧， 在Rust语言中，分号```;```用来把语句分隔开，也就是说语句的末尾一般用分号做为结束标志。
 
 ## HelloRust
@@ -65,7 +65,7 @@ fn main() {
 > [package]  
 name = "hellorust"  
 version = "0.1."  
-authors = ["YourName <YourEmail>"]  
+authors = ["YourName &lt;YourEmail&gt;"]  
 [dependencies]  
 
 - 编辑src目录下的main.rs文件
