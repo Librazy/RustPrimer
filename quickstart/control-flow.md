@@ -56,22 +56,32 @@ let z: i32 = if x == 5 { 10; } else { 15; };
 
 值得注意的是，在 Rust 中赋值 (如 `x = 5` ) 也是一个表达式，返回 unit `()` 。
 
-## For
+## while 与 loop
 
-Rust 中的 `for` 循环与C语言的风格非常不同，抽象结构如下：
+Rust中的 `while` 循环与C语言中的类似。
 
 ```rust
-for var in expression {
+while expression {
     code
 }
 ```
 
-其中 `expression` 是一个迭代器 (iterator)，具体的例子为 `0..10` (不包含最后一个值)，
-或者 `[0, 1, 2].iter()`。
+`while` 将循环执行循环体，直到条件 (predicate) 为假。条件是一个类型为 `bool` 的表达式。
 
-## While 与 Loop
+```rust
+let mut x = 5; // mut x: i32
+let mut done = false; // mut done: bool
 
-Rust中的 `while` 循环与C语言中的类似。
+while !done {
+    x += x - 3;
+
+    println!("{}", x);
+
+    if x % 5 == 0 {
+        done = true;
+    }
+}
+```
 
 ```rust
 let mut number = 3;
@@ -147,6 +157,108 @@ let largest_odd_lt_ten = loop {
 };
 
 println!("largest odd number less than ten is {}", largest_odd_lt_ten);
+```
+
+## for
+
+我们经常需要遍历一个数组或者针对一个集合进行操作，这种情况可以用 `while` 循环实现。
+
+```rust
+let values = [10, 20, 30, 40, 50];
+let mut index = 0;
+
+while index < values.len() {
+    println!("the value is: {}", values[index]);
+
+    index += 1;
+}
+```
+
+但即使对于有经验的 C 语言开发者来说，要手动控制要循环的每个元素也都是复杂并且易于出错的。
+
+这种时候可以采用 `for` 循环，抽象结构如下：
+
+```rust
+for var in expression {
+    code
+}
+```
+
+其中 `expression` 是一个迭代器 (iterator)，具体的例子为 `0..10` (不包含最后一个值)，
+或者 `[0, 1, 2].iter()`。
+
+迭代器返回一系列的元素，每个元素是循环中的一次重复。然后它的值与 var 绑定，它在循环体中有效。
+每当循环体执行完后，我们从迭代器中取出下一个值，然后我们再重复一遍。
+当迭代器中不再有值时，for 循环结束。
+
+例如：
+
+```rust
+for x in 0..10 {
+    println!("{}", x); // x: i32
+}
+```
+
+输出
+
+```plain
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+采用迭代器控制容器的遍历，有如下好处
+
+1. 简化边界条件的确定，减少出错
+2. 减少运行时边界检查，提高性能
+
+上述迭代器的形式虽好，但是好像在循环过程中，少了索引信息。
+Rust 考虑到了这一点，当你需要记录你已经循环了多少次了的时候，你可以使用 `.enumerate()` 函数。
+
+例子一：
+
+```rust
+for (i,j) in (5..10).enumerate() {
+    println!("i = {} and j = {}", i, j);
+}
+```
+
+输出：
+
+```plain
+i = 0 and j = 5
+i = 1 and j = 6
+i = 2 and j = 7
+i = 3 and j = 8
+i = 4 and j = 9
+```
+
+例子二：
+
+```rust
+let lines = "Content of line one
+Content of line two
+Content of line three
+Content of line four".lines();
+for (linenumber, line) in lines.enumerate() {
+    println!("{}: {}", linenumber, line);
+}
+```
+
+输出：
+
+```plain
+0: Content of line one
+1: Content of line two
+2: Content of line three
+3: Content of line four
 ```
 
 ## match 与 if let
