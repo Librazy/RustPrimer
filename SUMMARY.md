@@ -26,10 +26,10 @@
   * [注释与文档](quickstart/comments-document.md)
   * [输入输出流](quickstart/io-stream.md)
 * [Cargo项目管理器](cargo-projects-manager/cargo-projects-manager.md)「fuyingfuying」
-* [基本程序结构](flow/preface.md)「daogangtang」
-  * [注释](flow/comment.md)
-  * [条件](flow/condition.md)
-  * [循环](flow/repetition.md)
+* [可变性、所有权、租借和生命期](ownership-system/preface.md)「stormgbs」
+  * [所有权](ownership-system/ownership.md)
+  * [引用和借用](ownership-system/borrowing_reference.md)
+  * [生命周期](ownership-system/lifetime.md)
 * [类型、运算符和字符串](type/preface.md)「wayslog」
   * [基础类型](type/types.md)
   * [复合类型](type/compound-types.md)
@@ -47,10 +47,6 @@
   * [trait关键字](trait/trait.md)
   * [trait对象](trait/trait-object.md)
 * [泛型](generic/generic.md)「stormgbs」
-* [可变性、所有权、租借和生命期](ownership-system/preface.md)「stormgbs」
-  * [所有权](ownership-system/ownership.md)
-  * [引用和借用](ownership-system/borrowing_reference.md)
-  * [生命周期](ownership-system/lifetime.md)
 * [闭包](closure/overview.md)「qdao」
   * [闭包的语法](closure/syntax.md)
   * [闭包的实现](closure/implementation.md)
