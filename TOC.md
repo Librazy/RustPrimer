@@ -41,7 +41,7 @@
 - [模式匹配](match/overview.md)
   - [match关键字](match/match.md)
   - [模式 pattern](match/pattern.md)
-- [特征 Trait](trait/overview.md)
+- [特性 Trait](trait/overview.md)
   - [trait关键字](trait/trait.md)
   - [trait对象](trait/trait-object.md)
 - [泛型](generic/generic.md)

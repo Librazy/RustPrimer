@@ -13,7 +13,7 @@ Rust 编程语言的目标是，创建一个高度安全和并发的软件系统
 Rust 中有诸如 if else 和循环语句 for 和 while 的通用控制结构。
 和 C 和 C++ 风格的编程语言一样，代码段放在花括号中。
 
-Rust 使用实现（implementation）、特征（trait）和结构化类型（structured type）而不是类（class）。
+Rust 使用实现（implementation）、特性（trait）和结构化类型（structured type）而不是类（class）。
 这点，与基于继承的OO语言 C++, Java 有相当大的差异。而跟 Ocaml, Haskell 这类函数式语言更加接近。
 
 Rust 做到了内存安全而无需 .NET 和 Java 编程语言中实现自动垃圾收集器的开销，
