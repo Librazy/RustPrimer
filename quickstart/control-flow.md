@@ -264,9 +264,9 @@ Rust 中的 `match` 表达式非常强大，首先看一个例子：
 let day = 5;
 
 match day {
-  0 | 6 => println!("weekend"),
-  1 ... 5 => println!("weekday"),
-  _ => println!("invalid"),
+    0 | 6 => println!("weekend"),
+    1 ... 5 => println!("weekday"),
+    _ => println!("invalid"),
 }
 ```
 
