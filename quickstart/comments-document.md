@@ -2,8 +2,7 @@
 
 ## 注释
 
-在 Rust 里面注释分成两种，行注释和块注释。它的形式和 C 语言是一样的。
-两种注释分别是：
+在 Rust 里面注释分成两种，行注释和块注释。它的形式和 C 语言是一样的。两种注释分别是：
 
 1. 行注释使用 `//` 放在注释前面。比如:
 
@@ -59,5 +58,4 @@ fn add_one(x: i32) -> i32 {
 
 ### 生成 html 文档
 
-使用 `cargo doc` 可以生成 crate 的 html 文档，在 `target/doc` 文件夹下。
-或者也可以用 `rustdoc main.rs` 生成。
+使用 `cargo doc` 可以生成 crate 的 html 文档，在 `target/doc` 文件夹下。或者也可以用 `rustdoc main.rs` 生成。
