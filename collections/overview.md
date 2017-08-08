@@ -6,3 +6,4 @@
 
 * [Vec](vec.md)
 * [HashMap](hashmap.md)
+* [其他集合类型](other-collections.md)

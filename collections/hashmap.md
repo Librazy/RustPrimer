@@ -1,14 +1,14 @@
-# 哈希表 HashMap
+# 哈希表 `HashMap`
 
-和动态数组 `Vec` 一样，哈希表 (HashMap) 也是 Rust 内置的集合类型之一，同属 `std::collections` 模块下。
+和动态数组 `Vec` 一样，哈希表 (`HashMap`) 也是 Rust 内置的集合类型之一，同属 `std::collections` 模块下。
 
 它提供了一个平均复杂度为 `O(1)` 的查询方法，是实现快速搜索必备的类型之一。
 
-这里呢，主要给大家介绍一下 HashMap 的几种典型用法。
+这里呢，主要给大家介绍一下 `HashMap` 的几种典型用法。
 
-## HashMap的要求
+## `HashMap` 的要求
 
-顾名思义, HashMap 要求一个可哈希（实现 Hash trait）的 Key 类型，和一个编译时知道大小的 Value 类型。
+顾名思义, `HashMap` 要求一个可哈希（实现 Hash trait）的 Key 类型，和一个编译时知道大小的 Value 类型。
 同时， Rust 还要求你的 Key 类型必须是可比较的，在 Rust 中，你可以为你的类型轻易的加上编译器属性：
 
 ```rust
@@ -23,7 +23,7 @@
 
 什么？你看到 `std::hash::Hash` 这个 trait 中的函数没有 `&mut self` 的啊！但是，你不要忘了 Rust 中还有 `Cell` 和 `RefCell` 这种存在，他们提供了不可变对象的内部可变性，具体怎么变呢，请参照第20章。
 
-另外，要保证你写的 Hash 函数不会被很轻易的碰撞，即 `Key1! = Key2` ，但 `Hash(Key1) == Hash(Key2)` ，碰撞的严重了， HashMap 甚至有可能退化成链表！
+另外，要保证你写的 Hash 函数不会被很轻易的碰撞，即 `Key1! = Key2` ，但 `Hash(Key1) == Hash(Key2)` ，碰撞的严重了， `HashMap` 甚至有可能退化成链表！
 
 这里笔者提议，别费劲，就按最简单的来就好。
 
@@ -108,4 +108,4 @@ assert_eq!(letters[&'u'], 1);
 assert_eq!(letters.get(&'y'), None);
 ```
 
-Rust 为我们提供了一个名叫 `entry()` 的 API ，它很有意思，和 Python 相比，我们不需要在一次迭代的时候二次访问原 map ，只需要借用 `entry()` 出来的 Entry 类型（这个类型持有原有 HashMap 的引用）即可对原数据进行修改。就语法来说，毫无疑问 Rust 在这个方面更加直观和具体。
+Rust 为我们提供了一个名叫 `entry()` 的 API ，它很有意思，和 Python 相比，我们不需要在一次迭代的时候二次访问原 map ，只需要借用 `entry()` 出来的 Entry 类型（这个类型持有原有 `HashMap` 的引用）即可对原数据进行修改。就语法来说，毫无疑问 Rust 在这个方面更加直观和具体。
