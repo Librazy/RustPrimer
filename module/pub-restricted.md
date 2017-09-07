@@ -2,7 +2,7 @@
 
 ## 概览
 
-这是 rust1.18 新增的一个语法。在此之前的版本，`item` 只有 `pub`/non-`pub` 两种分类，pub restricted 这个语法用来扩展 `pub` 的使用，使其能够指定想要的作用域\(可见范围\)，详情参见RFC [1422-pub-restricted.md](https://github.com/rust-lang/rfcs/blob/master/text/1422-pub-restricted.md)。
+这是 rust1.18 新增的一个语法。在此之前的版本，`item` 只有 `pub`/non-`pub` 两种分类，pub restricted 这个语法用来扩展 `pub` 的使用，使其能够指定想要的作用域（可见范围），详情参见 [RFC 1422 pub-restricted.md](https://github.com/rust-lang/rfcs/blob/master/text/1422-pub-restricted.md)。
 
 在 Rust 中 `crate` 是一个模块树，可以通过表达式 `pub(crate) item;` 来限制 `item` 只在当前 `crate` 中可用，在当前 `crate` 的其他子树中，可以通过 `use + path` 的语法来引用 `item`。
 
@@ -10,8 +10,8 @@
 
 Rust1.18 之前，如果我们想要设计一个 item `x` 可以在多处使用，那么有两种方法：
 
-* 在根目录中定义一个非 `pub` item；
-* 在子模块中定义一个 `pub` item，同时通过 `use` 将这个项目引用到根目录。 
+* 在根目录中定义一个非 `pub` item ；
+* 在子模块中定义一个 `pub` item ，同时通过 `use` 将这个项目引用到根目录。
 
 但是，有时候这两种方法都并不是我们想要的。在一些情况下，我们希望对于某些特定的模块，该项目可见，而其他模块不允许使用。
 
@@ -37,9 +37,9 @@ pub mod a {
 }
 ```
 
-这段代码编译无法通过，因为 `J` 无法在 `mod c` 的外部访问，而 `fn semisecret` 尝试在 `mod a` 中访问 `J`.
+这段代码编译无法通过，因为 `J` 无法在 `mod c` 的外部访问，而 `fn semisecret` 尝试在 `mod a` 中访问 `J` 。
 
-在 rust1.18 之前，保持`J`私有，并能够让 `a` 使用 `fn semisecret` 的正确写法是，将 `fn semisecret` 移动到 `mod c` 中，并将其 `pub`，之后根据需要可以重新导出 `semisecret`。(如果不需要保持 `J` 的私有化，那么可以对其进行 `pub`，之后可以在 `b` 中 `pub use self::c::J` 或者直接 `pub c`)
+在 rust1.18 之前，保持`J`私有，并能够让 `a` 使用 `fn semisecret` 的正确写法是，将 `fn semisecret` 移动到 `mod c` 中，并将其 `pub` ，之后根据需要可以重新导出 `semisecret` 。（如果不需要保持 `J` 的私有化，那么可以对其进行 `pub` ，之后可以在 `b` 中 `pub use self::c::J` 或者直接 `pub c` ）
 
 ```Rust
 // Intent: `a` exports `I`, `bar`, and `foo`, but nothing else.
@@ -67,9 +67,9 @@ pub mod a {
 这种情况可以正常工作，但是，这里有个严重的问题：没有人能够十分清晰的说明 `pub fn semiseret` 使用到了哪些地方，需要通过上下文进行判断：
 
 1. 所有可以访问 `semiseret` 的模块；
-2. 在所有可以访问 `semiseret` 的模块中，是否存在 `semiseret` 的 re-export;
+2. 在所有可以访问 `semiseret` 的模块中，是否存在 `semiseret` 的 re-export ;
 
-同时，如果在 `a` 中使用 `pub use self::b::semisecret` ，那么所有人都可以通过 `use` 访问 `fn semiseret`，但是实际上，这个函数只需要让 `mod a` 访问就可以了。
+同时，如果在 `a` 中使用 `pub use self::b::semisecret` ，那么所有人都可以通过 `use` 访问 `fn semiseret` ，但是实际上，这个函数只需要让 `mod a` 访问就可以了。
 
 ## pub restricted 的使用
 
