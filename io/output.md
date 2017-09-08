@@ -4,25 +4,25 @@
 
 ```rust
 fn main() {
-	print!("hello!\ninput:");
-	let mut input = String::new();
-		std::io::stdin()
-			.read_line(&mut input)
-			.expect("Failed to read line");
-	println!("line:{}",input);
+    print!("hello!\ninput:");
+    let mut input = String::new();
+        std::io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line");
+    println!("line:{}",input);
 }
 ```
 
 您可以编译并运行这段程序试一试，您会发现我们并没有得到预期的（下划线代表光标的位置）：
 
-```
+```plain
 hello!
 input:_
 ```
 
 而是得到了：
 
-```
+```plain
 hello!
 _
 ```
@@ -41,11 +41,11 @@ macro_rules! print {
 use std::io::{self, Write};
 
 macro_rules! printf {
-	($($arg:tt)*) =>{
-		print!($($arg)*);
-		io::stdout().flush().unwrap();
-	}
+    ($($arg:tt)*) =>{
+        print!($($arg)*);
+        io::stdout().flush().unwrap();
+    }
 }
 ```
 
-此外，当您需要刷新还没有遇到换行符的一行内容的时候您都可以使用 `io::stdout().flush().unwrap();` 进行刷新，不过需要注意的是要先 `use std::io::{self, Write};` 如果您不这样做，将会得到一个错误。
+此外，当您需要刷新还没有遇到换行符的一行内容的时候您都可以使用 `io::stdout().flush().unwrap();` 进行刷新。不过需要注意的是因为需要的 trait 不在 prelude 内，需要 `use std::io::{self, Write};` 以引入定义了 `flush` 的 `std::io::Write` trait。
